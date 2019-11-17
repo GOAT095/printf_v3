@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 21:33:37 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/17 20:17:48 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/18 00:19:59 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,12 @@ void    ft_handle_flags(t_flag *flag, int d)
 		ft_handle_negative(flag, d);
 	else
 	{
-		if (flag->minus == 1)
+		//last update is here 
+		if (flag->prec == 0 && d == 0)
+			while (m > flag->prec && m-- > j - 1)
+				ft_putchar(' ');
+		//this
+		else if (flag->minus == 1)
 		{
 			if (j < flag->prec)
 				while (p-- > j)
@@ -80,7 +85,6 @@ void    ft_handle_flags(t_flag *flag, int d)
 			while (m > flag->prec && m-- > j)
 				ft_putchar(' ');
 		}
-		
 		else if (flag->minus == 0 && flag->prec != -1)
 		{
 			while (m > flag->prec && m-- > j)

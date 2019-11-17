@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/17 20:17:47 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/18 00:19:58 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int			ft_printf(const char *s, ...)
 			ft_putchar(str[i]);
 		i++;
 	}
-	
 	va_end(l);
 	return (0);
 }
@@ -58,7 +57,7 @@ int			ft_printf(const char *s, ...)
 int		main(void)
 {
 	char *d = "abc";
-	int i = -123;
+	int i = 0;
 	//ft_printf("char===>%c \nint==>%d \nstring==>%s \n\n", 'a', -889, "LUL");
 	//printf("char===>%c \nint==>%d \nstring==>%s", 'a', -889, "LUL");
 	//ft_printf("%u\n", 42949);
@@ -68,8 +67,8 @@ int		main(void)
 	ft_printf("mine======> %x\n", d);*/
 	//printf("original==> %%p\n", x);
 	//printf("|%015d|\n", i);
-	ft_printf("|%*.12d|\n", -15,153);
-	printf("|%*.12d|\n", -15, 153);
+	ft_printf("|%15.d|\n", i);
+	printf("|%15.d|\n", i);
 	//printf("original==> |%-.d|",i);
 	return (0);
 }
