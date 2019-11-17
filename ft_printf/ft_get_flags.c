@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/16 22:59:16 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/17 17:24:24 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_get_number(char *str, int *i)
 
 void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 {
-	while (strchr("cspdiuxX", str[*i]) == NULL)
+	while (!(strchr("cspdiuxX", str[*i])))
 	{
 		if (str[*i] == '-')
 		{
@@ -50,7 +50,7 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 			flag->zero = 1;
 			(*i)++;
 		}
-		if ((str[*i] > '0' && str[*i] <= '9') || (str[(*i)] == '*'))
+		if ((str[*i] >= '0' && str[*i] <= '9') || (str[(*i)] == '*'))
 		{
 			if (str[*i] > '0' && str[*i] <= '9')
 				flag->width = ft_get_number(str, i);
@@ -64,15 +64,16 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 				flag->prec = ft_get_number(str, i);
 			else if (strchr("cspdiuxX", str[*i]))
 				flag->prec = 0;
-			else if (str[(*i)++] == '*')
-				flag->prec = va_arg(l, int);
-			(*i)--;
+			else if (str[(*i)] == '*')
+			{
+				(*i)++;
+				flag->prec = (va_arg(l, int) >= 0 ? flag->prec = va_arg(l, int) : 0);
+			}
 		}
-		(*i)++;
 	}
 	if (flag->minus != 0 || flag->zero != 0 || flag->width != 0 || flag->prec != -1)
 		flag->true_flag = 1;
-	}
+}
 
 /*int main(void)
 {
