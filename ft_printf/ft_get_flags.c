@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/17 17:57:43 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/17 20:17:17 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,11 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 				flag->width = ft_get_number(str, i);
 			else if (str[(*i)++] == '*')
 				flag->width = va_arg(l, int);
+			if (flag->width < 0)
+			{
+				flag->minus = 1;
+				flag->width = -flag->width;
+			}
 		}
 		if (str[*i] == '.')
 		{
@@ -74,16 +79,3 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 	if (flag->minus != 0 || flag->zero != 0 || flag->width != 0 || flag->prec != -1)
 		flag->true_flag = 1;
 }
-
-/*int main(void)
-{
-	t_flag	flag;
-	flag.minus = 0;
-	flag.true_flag = 0;
-	flag.width = 0;
-	flag.prec = -1;
-	flag.zero = 0;
-	int i = 1;
-	ft_get_flags("%012.300d|\n", &i, &flag);
-	return 0;
-}*/
