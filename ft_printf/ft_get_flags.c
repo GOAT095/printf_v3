@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/17 17:24:24 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/17 17:57:43 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 			else if (str[(*i)] == '*')
 			{
 				(*i)++;
-				flag->prec = (va_arg(l, int) >= 0 ? flag->prec = va_arg(l, int) : 0);
+				flag->prec = (va_arg(l, int) > 0 ? flag->prec = va_arg(l, int) : -1);
 			}
 		}
 	}
