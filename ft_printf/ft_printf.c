@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/18 00:19:58 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/18 18:18:13 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ int		main(void)
 	ft_printf("mine======> %x\n", d);*/
 	//printf("original==> %%p\n", x);
 	//printf("|%015d|\n", i);
-	ft_printf("|%15.d|\n", i);
-	printf("|%15.d|\n", i);
+	ft_printf("|%*.*d|\n", -4, 0, i);
+	printf("|%*.*d|\n", -4, 0, i);
 	//printf("original==> |%-.d|",i);
 	return (0);
 }
