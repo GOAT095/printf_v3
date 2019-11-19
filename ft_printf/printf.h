@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 19:39:43 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/19 21:43:46 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		ft_printf(const char *s, ...);
 void	ft_put_unsigned(unsigned int nb);
 char	*ft_small_hexa(unsigned int x);
 char	*ft_big_hexa(unsigned int x);
-void	ft_pourcentage_p(unsigned long long x);
+char	*ft_p(unsigned long long x);
 void	ft_min_width(char *s, int j);
 char	*ft_itoau(unsigned int n);
 char	*ft_strrev(char *str);
@@ -52,4 +52,5 @@ void    ft_handle_flag_d(t_flag *flag, int d);
 void    ft_handle_flag_u(t_flag *flag, unsigned int d);
 void    ft_handle_flag_x(t_flag *flag, char *s);
 void    ft_handle_flag_X(t_flag *flag, char *s);
+void    ft_handle_flag_p(t_flag *flag, char *s);
 #endif

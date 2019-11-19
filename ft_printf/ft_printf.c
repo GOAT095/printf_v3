@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 20:27:39 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/19 21:44:44 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,8 @@ int			ft_printf(const char *s, ...)
 					ft_handle_flag_x(&flag, ft_small_hexa(va_arg(l, unsigned int)));
 				else if (str[i] == 'X')
 					ft_handle_flag_X(&flag, ft_big_hexa(va_arg(l, unsigned int)));
+				else if (str[i] == 'p')
+					ft_handle_flag_p(&flag, ft_p(va_arg(l, unsigned long long)));
 			}
 		}
 		else

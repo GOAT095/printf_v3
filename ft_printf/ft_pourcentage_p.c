@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:33:01 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/12 14:46:34 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/19 21:48:35 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	char	ft_alpha(int i)
 	return (0);
 }
 
-void		ft_pourcentage_p(unsigned long long x)
+char			*ft_p(unsigned long long x)
 {
 	int					y;
 	int					i;
@@ -38,6 +38,8 @@ void		ft_pourcentage_p(unsigned long long x)
 
 	y = 0;
 	nb = x;
+	if (x == 0)
+		return("0x0");
 	while (nb > 0)
 	{
 		nb = nb / 16;
@@ -59,5 +61,5 @@ void		ft_pourcentage_p(unsigned long long x)
 	}
 	s[i] = '\0';
 	ft_strrev(s + 2);
-	ft_putstr(s);
+	return (s);
 }
