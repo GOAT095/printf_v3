@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:32:08 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/13 23:05:13 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/19 20:31:14 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static	char	ft_alpha(int i)
 	return (0);
 }
 
-void		ft_big_hexa(unsigned int x)
+char			*ft_big_hexa(unsigned int x)
 {
 	int					y;
 	int					i;
@@ -38,6 +38,8 @@ void		ft_big_hexa(unsigned int x)
 
 	y = 0;
 	nb = x;
+	if (x == 0)
+		return ("0");
 	while (nb > 0)
 	{
 		nb = nb / 16;
@@ -56,5 +58,5 @@ void		ft_big_hexa(unsigned int x)
 		i++;
 	}
 	s[i] = '\0';
-	ft_putstr(ft_strrev(s));
+	return (ft_strrev(s));
 }

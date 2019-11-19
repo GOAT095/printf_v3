@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/18 20:56:01 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/19 13:48:04 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_get_number(char *str, int *i)
 
 void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 {
-	while (!(strchr("cspdiuxX", str[*i])))
+	while (!(strchr("cspdiuxX%", str[*i])) && str[*i] != '\0')
 	{
 		if (str[*i] == '-')
 		{
@@ -52,7 +52,7 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 		}
 		if ((str[*i] >= '0' && str[*i] <= '9') || (str[(*i)] == '*'))
 		{
-			if (str[*i] > '0' && str[*i] <= '9')
+			if (str[*i] >= '0' && str[*i] <= '9')
 				flag->width = ft_get_number(str, i);
 			else if (str[(*i)++] == '*')
 				flag->width = va_arg(l, int);

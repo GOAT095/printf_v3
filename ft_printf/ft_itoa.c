@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: anassif <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/14 12:31:51 by anassif           #+#    #+#             */
-/*   Updated: 2019/10/14 12:31:53 by anassif          ###   ########.fr       */
+/*   Created: 2019/11/19 14:41:23 by anassif           #+#    #+#             */
+/*   Updated: 2019/11/19 15:58:44 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "printf.h"
 
-static	int	count_numbers(int n)
+static	int	count_numbers(long int n)
 {
 	int i;
 
@@ -32,11 +32,11 @@ static	int	count_numbers(int n)
 	return (i);
 }
 
-char		*ft_itoa(int n)
+char		*ft_itoa(long int n)
 {
 	char			*str;
 	int				c;
-	unsigned int	nbr;
+	long int		nbr;
 
 	nbr = 0;
 	c = count_numbers(n);
