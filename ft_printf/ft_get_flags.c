@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 13:48:04 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/20 21:07:15 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@ int		ft_get_number(char *str, int *i)
 	return (n * sign);
 }
 
-void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
+void	ft_get_flags(char *str, int *i, t_flag *flag, va_list *l)
 {
-	while (!(strchr("cspdiuxX%", str[*i])) && str[*i] != '\0')
+	while (!(strchr("%cspdiuxX", str[*i])) && str[*i] != '\0')
 	{
 		if (str[*i] == '-')
 		{
@@ -55,7 +55,7 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 			if (str[*i] >= '0' && str[*i] <= '9')
 				flag->width = ft_get_number(str, i);
 			else if (str[(*i)++] == '*')
-				flag->width = va_arg(l, int);
+				flag->width = va_arg(*l, int);
 			if (flag->width < 0)
 			{
 				flag->minus = 1;
@@ -72,11 +72,11 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l)
 			else if (str[(*i)] == '*')
 			{
 				(*i)++;
-				int x = va_arg(l, int);
+				int x = va_arg(*l, int);
 				flag->prec = (x >= 0 ? flag->prec = x : -1);
 			}
 		}
 	}
-	if (flag->minus != 0 || flag->zero != 0 || flag->width != 0 || flag->prec != -1)
-		flag->true_flag = 1;
+	/*if (flag->minus != 0 || flag->zero != 0 || flag->width != 0 || flag->prec != -1)
+		flag->true_flag = 1;*/
 }

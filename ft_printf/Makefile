@@ -6,7 +6,7 @@
 #    By: anassif <anassif@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 13:52:25 by anassif           #+#    #+#              #
-#    Updated: 2019/11/19 21:48:36 by anassif          ###   ########.fr        #
+#    Updated: 2019/11/20 14:32:53 by anassif          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRC =	ft_printf.c\
 		ft_handle_flag_x.c\
 		ft_small_hexa.c\
 		ft_big_hexa.c\
-		ft_pourcentage_p.c
+		ft_pourcentage_p.c\
+		ft_h_s.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -37,12 +38,10 @@ all: $(NAME)
 $(NAME):
 	gcc $(CFLAGS) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
-	ranlib $(NAME)
 
 bonus:
 	gcc $(CFLAGS) -c $(SRC_BONUS)
 	ar rc $(NAME) $(OBJ_BONUS)
-	ranlib $(NAME)
 
 clean:
 	rm -f $(OBJ)

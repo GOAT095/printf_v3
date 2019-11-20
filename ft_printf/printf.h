@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 21:43:46 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/20 20:49:53 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,13 @@ char	*ft_strrev(char *str);
 char    *ft_p100tage_p(unsigned long long x);
 void	ft_flag_zero(char *s, int j);
 char	*ft_precission(char *str, int j);
-void	ft_get_flags(char *str, int *i, t_flag *flag, va_list l);
+void	ft_get_flags(char *str, int *i, t_flag *flag, va_list *l);
 int		ft_get_number(char *str, int *i);
 void    ft_handle_flag_d(t_flag *flag, int d);
 void    ft_handle_flag_u(t_flag *flag, unsigned int d);
 void    ft_handle_flag_x(t_flag *flag, char *s);
 void    ft_handle_flag_X(t_flag *flag, char *s);
 void    ft_handle_flag_p(t_flag *flag, char *s);
+void    ft_handle_pour(t_flag *flag);
+void    ft_h_s(t_flag *flag, char *s);
 #endif

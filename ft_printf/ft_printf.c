@@ -6,12 +6,21 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 21:44:44 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/20 21:20:33 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
-int count;
+
+/*#define T(...)\
+	printf("\n");\
+	printf("Origina: => ");\
+	printf(__VA_ARGS__);\
+	printf("\n");\
+	printf("Mine: => ");\
+	ft_printf(__VA_ARGS__);\
+	printf("\n");
+*/
 void		ft_init_flag(t_flag *flag)
 {
 	flag->minus = 0;
@@ -27,18 +36,18 @@ int			ft_printf(const char *s, ...)
 	va_list	l;
 	int		i;
 	t_flag	flag;
-
+	char	*a;
 	i = 0;
 	str = strdup(s);
 	ft_init_flag(&flag);
 	va_start(l, s);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%' && str[i + 1] != '%' && !(strchr("cspdiuxX", str[i])))
+		if (str[i] == '%' && str[i + 1] != '%')
 		{
 			i++;
-			ft_get_flags(str, &i, &flag, l);
-			if (strchr("cspdiuxX", str[i]))
+			ft_get_flags(str, &i, &flag, &l);
+			if (strchr("%cspdiuxX", str[i]))
 			{
 				if (str[i] == 'd' || str[i] == 'i')
 					ft_handle_flag_d(&flag, va_arg(l, int));
@@ -50,7 +59,19 @@ int			ft_printf(const char *s, ...)
 					ft_handle_flag_X(&flag, ft_big_hexa(va_arg(l, unsigned int)));
 				else if (str[i] == 'p')
 					ft_handle_flag_p(&flag, ft_p(va_arg(l, unsigned long long)));
+				//wtffffff
+				else if (str[i] == 's')
+				{	
+					a = va_arg(l, char *);
+					if (a == NULL)
+						ft_putstr("(null)");
+					else
+						ft_h_s(&flag, a);
+				}
+				else if (str[i] == '%')
+					ft_handle_pour(&flag);
 			}
+			ft_init_flag(&flag);
 		}
 		else
 			ft_putchar(str[i]);
@@ -66,16 +87,16 @@ int		main(void)
 	//char *d = "abc";
 	// unsigned int i = 56464;
 	//ft_printf("char===>%c \nint==>%d \nstring==>%s \n\n", 'a', -889, "LUL");
-	//printf("char===>%c \nint==>%d \nstring==>%s", 'a', -889, "LUL");
-	//ft_printf("%u\n", 42949);
 	//printf("original==> %X\n", d);
-	ft_printf("mine======> |%x|\n", 0);
-	printf("original==> |%x|\n", 0);
+	//ft_printf("mine======> |%10d %-10u %-.*s|\n",100,30,2, "abc");
+	//printf("original==> |%10d %-10u %.*s|\n",100,30,2, "abc");
 	// ft_printf("mine======> %x\n", d);
 	//printf("original==> %%p\n", x);
-	//printf("|%015d|\n", i);
-	// ft_printf("|%*.*u|\n", -4, 0, i);
+	//printf("|%.3d|\n\n", 100);
+	//ft_printf("|%.3d|", 100);
 	// printf("|%*.*u|\n", -4, 0, i);
 	//printf("original==> |%-.d|",i);
+	ft_printf("|%s|", NULL);
 	return (0);
-}*/
+}
+*/
