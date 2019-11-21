@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 19:01:27 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/21 23:05:44 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ int			ft_printf(const char *s, ...)
 	free(str);
 	return (count);
 }
-/*
+
 int		main(void)
 {
 	int x = 123456;
@@ -106,7 +106,8 @@ int		main(void)
 	//printf("char===>|%*c|\n", -5,'a');
 	//ft_printf("char===>|%*c|", -5,'a');
 	// ft_printf("mine======> %x\n", d);
-	ft_printf("original==> %x\n", x);
+	ft_printf("meeeeeee==> |%2.0x|\n", 100);
+	printf("original==> |%2.0x|\n", 100);
 	//printf("original==> %p\n", &x);
 	//printf("|%.3d|\n\n", 100);
 	//ft_printf("|%.3d|", 100);
@@ -117,4 +118,3 @@ int		main(void)
 	//printf("|%05%|");
 	return (0);
 }
-*/
