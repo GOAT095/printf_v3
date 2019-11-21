@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 13:57:40 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/21 15:21:04 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			ft_printf(const char *s, ...)
 	va_start(l, s);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '%' && str[i + 1] != '%')
+		if (str[i] == '%')
 		{
 			i++;
 			ft_get_flags(str, &i, &flag, &l);
@@ -69,16 +69,17 @@ int			ft_printf(const char *s, ...)
 				}
 				else if (str[i] == 'c')
 					ft_h_c(&flag, va_arg(l, int));
-				/*else if (str[i] == '%')
-					ft_handle_pour(&flag);*/
+				else if (str[i] == '%')
+					ft_handle_pour(&flag);
 			}
 			ft_init_flag(&flag);
 		}
-		else if (str[i - 1] != '%')
+		else
 			ft_putchar(str[i]);
 		i++;
 	}
 	va_end(l);
+	free(str);
 	return (count);
 }
 /*
@@ -89,11 +90,11 @@ int		main(void)
 	// unsigned int i = 56464;
 	//ft_printf("char===>%c \nint==>%d \nstring==>%s \n\n", 'a', -889, "LUL");
 	//printf("original==> %X\n", d);
-	//printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0);
-	//ft_printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0);
+	printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%\n\n", 7,5, "ABC",15,0);
+	ft_printf("TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%\n", 7,5, "ABC",15,0);
 	//ft_printf("char===>|%c|", 93);
-	printf("char===>|%*c|\n", -5,'a');
-	ft_printf("char===>|%*c|", -5,'a');
+	//printf("char===>|%*c|\n", -5,'a');
+	//ft_printf("char===>|%*c|", -5,'a');
 	// ft_printf("mine======> %x\n", d);
 	//printf("original==> %%p\n", x);
 	//printf("|%.3d|\n\n", 100);
@@ -101,6 +102,8 @@ int		main(void)
 	// printf("|%*.*u|\n", -4, 0, i);
 	//printf("original==> |%-.d|",i);
 	//ft_printf("|%s|", NULL);
+	//ft_printf("|%05%|\n");
+	//printf("|%05%|");
 	return (0);
 }
 */

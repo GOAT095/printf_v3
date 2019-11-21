@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 21:33:37 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 13:40:39 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/21 15:19:12 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,13 @@ void	ft_handle_negative(t_flag *flag, int d)
 
 void    ft_handle_flag_d(t_flag *flag, int d)
 {
-	int j;
-	int p;
-	int m;
+	int		j;
+	int		p;
+	int		m;
+	char	*s;
 	
-	j = strlen(ft_itoa(d));
+	s = ft_itoa(d);
+	j = strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (d < 0)
@@ -80,7 +82,7 @@ void    ft_handle_flag_d(t_flag *flag, int d)
 			if (j < flag->prec)
 				while (p-- > j)
 					ft_putchar('0');
-			ft_putstr(ft_itoa(d));
+			ft_putstr(s);
 			while (m > flag->prec && m-- > j)
 				ft_putchar(' ');
 		}
@@ -91,37 +93,43 @@ void    ft_handle_flag_d(t_flag *flag, int d)
 			if (j < flag->prec)
 				while (p-- > j)
 					ft_putchar('0');
-			ft_putstr(ft_itoa(d));
+			ft_putstr(s);
 		}
 		else if (flag->zero == 0 && flag->prec == -1)
 		{
 			while (m-- > j)
 				ft_putchar(' ');
-			ft_putstr(ft_itoa(d));
+			ft_putstr(s);
 		}
 		else if (flag->zero == 1 && flag->prec == -1)
 		{
 			while (m-- > j)
 				ft_putchar('0');
-			ft_putstr(ft_itoa(d));
+			ft_putstr(s);
 		}
 	}
+	free(s);
 }
-/*
+
 void    ft_handle_pour(t_flag *flag)
 {
 	int m;
 	int p;
 	m = flag->width;
 	p = flag->prec;
-	if (flag->width == 1 || flag->prec != -1 && flag->zero == 0)
+	
+	if (flag->width != 0 && flag->zero == 1)
 	{
-		while (m-- > 0)
-			ft_putchar(' ');
-		while (p-- > 0)
-			ft_putchar(' ');
-	}
-	else if (flag->zero == 1)
-		while (m-- > 0)
+		while (m-- > 1)
 			ft_putchar('0');
-}*/
+		ft_putchar('%');
+	}
+	else if (flag->width != 0 && flag->zero == 0)
+	{
+		while (m-- > 1)
+			ft_putchar(' ');
+		ft_putchar('%');
+	}
+	else
+		ft_putchar('%');
+}

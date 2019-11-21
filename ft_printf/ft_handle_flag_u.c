@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 14:22:59 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 19:23:51 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/21 15:20:53 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,10 @@ void    ft_handle_flag_u(t_flag *flag, unsigned int d)
 	int j;
 	int p;
 	int m;
+	char	*s;
 	
-	j = strlen(ft_itoa(d));
+	s = ft_itoa(d);
+	j = strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && d == 0)
@@ -29,7 +31,7 @@ void    ft_handle_flag_u(t_flag *flag, unsigned int d)
 		if (j < flag->prec)
 			while (p-- > j)
 				ft_putchar('0');
-		ft_putstr(ft_itoa(d));
+		ft_putstr(s);
 		while (m > flag->prec && m-- > j)
 			ft_putchar(' ');
 	}
@@ -40,18 +42,19 @@ void    ft_handle_flag_u(t_flag *flag, unsigned int d)
 		if (j < flag->prec)
 			while (p-- > j)
 				ft_putchar('0');
-		ft_putstr(ft_itoa(d));
+		ft_putstr(s);
 	}
 	else if (flag->zero == 0 && flag->prec == -1)
 	{
 		while (m-- > j)
 			ft_putchar(' ');
-		ft_putstr(ft_itoa(d));
+		ft_putstr(s);
 	}
 	else if (flag->zero == 1 && flag->prec == -1)
 	{
 		while (m-- > j)
 			ft_putchar('0');
-		ft_putstr(ft_itoa(d));
+		ft_putstr(s);
 	}
+	free(s);
 }
