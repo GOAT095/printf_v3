@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 18:59:32 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/21 19:01:27 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,16 @@ int			ft_printf(const char *s, ...)
 				{
 					a = ft_small_hexa(va_arg(l, unsigned int));
 					ft_handle_flag_x(&flag, a);
-					free(a);
 				}
 				else if (str[i] == 'X')
 				{
 					a = ft_big_hexa(va_arg(l, unsigned int));
 					ft_handle_flag_X(&flag, a);
-					free(a);
 				}
 				else if (str[i] == 'p')
 				{
 					a = ft_p(va_arg(l, unsigned long long));
 					ft_handle_flag_p(&flag, a);
-					free(a);
 				}
 				else if (str[i] == 's')
 				{	
@@ -78,7 +75,6 @@ int			ft_printf(const char *s, ...)
 						ft_h_s(&flag, "(null)");
 					else
 						ft_h_s(&flag, a);
-					free(a);
 				}
 				else if (str[i] == 'c')
 					ft_h_c(&flag, va_arg(l, int));
@@ -95,7 +91,7 @@ int			ft_printf(const char *s, ...)
 	free(str);
 	return (count);
 }
-
+/*
 int		main(void)
 {
 	int x = 123456;
@@ -121,3 +117,4 @@ int		main(void)
 	//printf("|%05%|");
 	return (0);
 }
+*/
