@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 14:26:09 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 14:28:29 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,6 @@ char	*ft_p(unsigned long long x);
 void	ft_min_width(char *s, int j);
 char	*ft_itoau(unsigned int n);
 char	*ft_strrev(char *str);
-// char	*ft_small_hexaa(unsigned int x);
-// char	*ft_big_hexaa(unsigned int x);
 char    *ft_p100tage_p(unsigned long long x);
 void	ft_flag_zero(char *s, int j);
 char	*ft_precission(char *str, int j);
