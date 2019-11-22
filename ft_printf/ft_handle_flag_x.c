@@ -6,13 +6,13 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:30:09 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 15:44:41 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 20:43:22 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void    ft_handle_flag_x(t_flag *flag, char *s)
+void    ft_h_x(t_flag *flag, char *s)
 {
 	int j;
 	int p;
@@ -56,7 +56,7 @@ void    ft_handle_flag_x(t_flag *flag, char *s)
 	}
 }
 
-void    ft_handle_flag_p(t_flag *flag, char *s)
+void    ft_h_p(t_flag *flag, char *s)
 {
 	int j;
 	int p;
