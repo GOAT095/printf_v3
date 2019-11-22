@@ -6,21 +6,12 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 14:25:43 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 18:13:41 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-/*#define T(...)\
-	printf("\n");\
-	printf("Origina: => ");\
-	printf(__VA_ARGS__);\
-	printf("\n");\
-	printf("Mine: => ");\
-	ft_printf(__VA_ARGS__);\
-	printf("\n");
-*/
 void		ft_init_flag(t_flag *flag)
 {
 	flag->minus = 0;
@@ -54,22 +45,13 @@ int			ft_printf(const char *s, ...)
 				else if (str[i] == 'u')
 					ft_handle_flag_u(&flag, va_arg(l, unsigned int));
 				else if (str[i] == 'x')
-				{
-					a = ft_small_hexa(va_arg(l, unsigned int));
-					ft_handle_flag_x(&flag, a);
-				}
+					ft_handle_flag_x(&flag, ft_small_hexa(va_arg(l, unsigned int)));
 				else if (str[i] == 'X')
-				{
-					a = ft_big_hexa(va_arg(l, unsigned int));
-					ft_handle_flag_x(&flag, a);
-				}
+					ft_handle_flag_x(&flag, ft_big_hexa(va_arg(l, unsigned int)));
 				else if (str[i] == 'p')
-				{
-					a = ft_p(va_arg(l, unsigned long long));
-					ft_handle_flag_p(&flag, a);
-				}
+					ft_handle_flag_p(&flag, ft_p(va_arg(l, unsigned long long)));
 				else if (str[i] == 's')
-				{	
+				{
 					a = va_arg(l, char *);
 					if (a == NULL)
 						ft_h_s(&flag, "(null)");

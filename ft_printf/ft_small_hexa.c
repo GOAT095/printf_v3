@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 13:36:20 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/19 20:30:29 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 18:37:58 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ static char	ft_alpha(int i)
 		return ('e');
 	if (i == 15)
 		return ('f');
+	else
+		return (i + '0');
 	return (0);
 }
 
@@ -73,10 +75,7 @@ char		*ft_small_hexa(unsigned int x)
 	while (y--)
 	{
 		nb = x % 16;
-		if (nb > 9 && nb < 16)
-			s[i] = ft_alpha(nb);
-		else
-			s[i] = nb + '0';
+		s[i] = ft_alpha(nb);
 		x = x / 16;
 		i++;
 	}
