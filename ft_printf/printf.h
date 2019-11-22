@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 14:54:47 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 18:44:52 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct  flag
     int minus;
     int width;
     int prec;
-    int true_flag;
 }               t_flag;
 
 char	*ft_itoa(long int n);

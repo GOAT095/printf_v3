@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/20 21:07:15 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 18:44:40 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,4 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list *l)
 			}
 		}
 	}
-	/*if (flag->minus != 0 || flag->zero != 0 || flag->width != 0 || flag->prec != -1)
-		flag->true_flag = 1;*/
 }
