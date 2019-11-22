@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 23:05:44 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 14:25:43 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int			ft_printf(const char *s, ...)
 				else if (str[i] == 'X')
 				{
 					a = ft_big_hexa(va_arg(l, unsigned int));
-					ft_handle_flag_X(&flag, a);
+					ft_handle_flag_x(&flag, a);
 				}
 				else if (str[i] == 'p')
 				{
@@ -91,10 +91,10 @@ int			ft_printf(const char *s, ...)
 	free(str);
 	return (count);
 }
-
+/*
 int		main(void)
 {
-	int x = 123456;
+	//int x = 123456;
 	//ft_printf("%d\n", INT32_MIN);
 	//char *d = "abc";
 	// unsigned int i = 56464;
@@ -106,8 +106,8 @@ int		main(void)
 	//printf("char===>|%*c|\n", -5,'a');
 	//ft_printf("char===>|%*c|", -5,'a');
 	// ft_printf("mine======> %x\n", d);
-	ft_printf("meeeeeee==> |%2.0x|\n", 100);
-	printf("original==> |%2.0x|\n", 100);
+	ft_printf("meeeeeee==> |%5.x|\n", 0);
+	printf("original==> |%5.x|\n", 0);
 	//printf("original==> %p\n", &x);
 	//printf("|%.3d|\n\n", 100);
 	//ft_printf("|%.3d|", 100);
@@ -118,3 +118,4 @@ int		main(void)
 	//printf("|%05%|");
 	return (0);
 }
+*/

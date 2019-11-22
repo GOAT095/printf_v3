@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 21:33:37 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 15:19:12 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/22 14:00:09 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,15 +120,33 @@ void    ft_handle_pour(t_flag *flag)
 	
 	if (flag->width != 0 && flag->zero == 1)
 	{
-		while (m-- > 1)
-			ft_putchar('0');
-		ft_putchar('%');
+		if (flag->minus == 0)
+		{
+			while (m-- > 1)
+				ft_putchar('0');
+			ft_putchar('%');
+		}
+		else
+		{
+			ft_putchar('%');
+			while (m-- > 1)
+				ft_putchar(' ');
+		}
 	}
 	else if (flag->width != 0 && flag->zero == 0)
 	{
-		while (m-- > 1)
-			ft_putchar(' ');
-		ft_putchar('%');
+		if (flag->minus == 0)
+		{
+			while (m-- > 1)
+				ft_putchar(' ');
+			ft_putchar('%');
+		}
+		else
+		{
+			ft_putchar('%');
+			while (m-- > 1)
+				ft_putchar(' ');
+		}
 	}
 	else
 		ft_putchar('%');
