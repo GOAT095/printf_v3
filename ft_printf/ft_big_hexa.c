@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 17:32:08 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 18:39:05 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 14:43:24 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,14 +47,14 @@ char			*ft_big_hexa(unsigned int x)
 		nb = nb / 16;
 		y++;
 	}
-	s = malloc(sizeof(char) * y + 1);
+	if ((s = malloc(sizeof(char) * y + 1)) == NULL)
+		return (NULL);
 	i = 0;
 	while (y--)
 	{
 		nb = x % 16;
-		s[i] = ft_alpha(nb);
+		s[i++] = ft_alpha(nb);
 		x = x / 16;
-		i++;
 	}
 	s[i] = '\0';
 	return (ft_strrev(s));

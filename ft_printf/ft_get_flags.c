@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/12 15:20:54 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 18:44:40 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 13:42:52 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int		ft_get_number(char *str, int *i)
 
 void	ft_get_flags(char *str, int *i, t_flag *flag, va_list *l)
 {
-	while (!(strchr("%cspdiuxX", str[*i])) && str[*i] != '\0')
+	while (!(ft_strchr("%cspdiuxX", str[*i])) && str[*i] != '\0')
 	{
 		if (str[*i] == '-')
 		{
@@ -67,7 +67,7 @@ void	ft_get_flags(char *str, int *i, t_flag *flag, va_list *l)
 			(*i)++;
 			if (str[*i] >= '0' && str[*i] <= '9')
 				flag->prec = ft_get_number(str, i);
-			else if (strchr("cspdiuxX", str[*i]))
+			else if (ft_strchr("cspdiuxX", str[*i]))
 				flag->prec = 0;
 			else if (str[(*i)] == '*')
 			{

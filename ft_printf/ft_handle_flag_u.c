@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 14:22:59 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 15:24:25 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 13:46:06 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void    ft_handle_flag_u(t_flag *flag, unsigned int d)
 	char	*s;
 	
 	s = ft_itoa(d);
-	j = strlen(s);
+	j = ft_strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && d == 0)

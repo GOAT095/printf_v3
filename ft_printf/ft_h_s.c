@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:53:41 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/21 13:57:30 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 14:53:29 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void    ft_h_s(t_flag *flag, char *s)
 	int p;
 	int m;
 	
-	j = strlen(s);
+	j = ft_strlen(s);
 	p = flag->prec;
 	if (flag->prec == -1 || flag->prec > j)
 		flag->prec = j;

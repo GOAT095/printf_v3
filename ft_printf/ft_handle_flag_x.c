@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:30:09 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 20:43:22 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 14:34:59 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,11 @@
 
 void    ft_h_x(t_flag *flag, char *s)
 {
-	int j;
-	int p;
-	int m;
+	int		j;
+	int		p;
+	int		m;
 	
-	j = strlen(s);
+	j = ft_strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && s[0] == '0')
@@ -54,6 +54,8 @@ void    ft_h_x(t_flag *flag, char *s)
 			ft_putchar('0');
 		ft_putstr(s);
 	}
+	if (ft_strncmp(s, "0", 100))
+		free(s);
 }
 
 void    ft_h_p(t_flag *flag, char *s)
@@ -62,7 +64,7 @@ void    ft_h_p(t_flag *flag, char *s)
 	int p;
 	int m;
 	
-	j = strlen(s);
+	j = ft_strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && s[2] == '0')
@@ -110,4 +112,6 @@ void    ft_h_p(t_flag *flag, char *s)
 			ft_putchar('0');
 		ft_putstr(s);
 	}
+	if (ft_strncmp(s, "0x0", 100))
+		free(s);
 }

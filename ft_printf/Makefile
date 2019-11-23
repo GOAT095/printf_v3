@@ -6,11 +6,12 @@
 #    By: anassif <anassif@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/11/19 13:52:25 by anassif           #+#    #+#              #
-#    Updated: 2019/11/20 14:32:53 by anassif          ###   ########.fr        #
+#    Updated: 2019/11/23 13:40:40 by anassif          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRC =	ft_printf.c\
+		ft_utils1.c\
 		ft_get_flags.c\
 		ft_handle_flag_d.c\
 		ft_handle_flag_u.c\

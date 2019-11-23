@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/22 20:44:32 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 14:53:30 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int			ft_printf(const char *s, ...)
 	t_flag	flag;
 
 	i = 0;
-	str = strdup(s);
+	str = ft_strdup(s);
 	ft_init_flag(&flag);
 	va_start(l, s);
 	while (str[i] != '\0')
@@ -76,25 +76,26 @@ int			ft_printf(const char *s, ...)
 	free(str);
 	return (count);
 }
-
 /*
 int		main(void)
 {
-	// int x = 123456;
-	// ft_printf("%d\n", INT32_MIN);
-	// char *d = "abc";
-	// unsigned int i = 56464;
+	int x = 123456;
+	char *d = "abc";
+	int i = 56464;
+	int j;
 	// ft_printf("char===>%c \nint==>%d \nstring==>%s \n\n", 'a', -889, "LUL");
 	// printf("original==> %X\n", d);
 	// ft_printf("char===>|%c|", 93);
 	// printf("char===>|%*c|\n", -5,'a');
 	// ft_printf("char===>|%*c|", -5,'a');
 	// ft_printf("mine======> %x\n", d);
-	ft_printf("meeeeeee==> |%5.x|\n", 0);
-	printf("original==> |%5.x|\n", 0);
+	// ft_printf("meeeeeee==> |%p|\n", (void *)0x0);
+	// printf("original==> |%p|\n", (void *)0x0);
 	// printf("original==> %p\n", &x);
-	// printf("|%.3d|\n\n", 100);
-	// ft_printf("|%.3d|", 100);
+	i = printf("BLA BLA BLA|%03ld|\n ", -2147483648);
+	printf("%d\n", i);
+	j = ft_printf("BLA BLA BLA|%03d|\n ", -2147483648);
+	 printf("%d\n", j);
 	// printf("|%*.*u|\n", -4, 0, i);
 	// printf("original==> |%-.d|",i);
 	// ft_printf("|%s|", NULL);
