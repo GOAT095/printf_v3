@@ -6,13 +6,13 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/20 13:53:41 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 14:53:29 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 17:47:04 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-static	void ft_s(char *s, int j)
+static	void	ft_s(char *s, int j)
 {
 	int i;
 
@@ -24,41 +24,39 @@ static	void ft_s(char *s, int j)
 	}
 }
 
-void    ft_h_s(t_flag *flag, char *s)
+void			ft_h_s(t_flag *flag, char *s)
 {
-    int j;
+	int j;
 	int p;
-	int m;
-	
+
 	j = ft_strlen(s);
 	p = flag->prec;
 	if (flag->prec == -1 || flag->prec > j)
 		flag->prec = j;
-	m = flag->width;
 	if (flag->minus == 1)
 	{
 		ft_s(s, flag->prec);
-		while (m-- > flag->prec)
+		while (flag->width-- > flag->prec)
 			ft_putchar(' ');
 	}
 	else if (flag->minus == 0 && flag->prec != -1)
 	{
-		while (m-- > flag->prec)
+		while (flag->width-- > flag->prec)
 			ft_putchar(' ');
 		ft_s(s, flag->prec);
 	}
 	else if (flag->prec == -1)
 	{
-		while (m-- > j)
+		while (flag->width-- > j)
 			ft_putchar(' ');
 		ft_putstr(s);
 	}
 }
 
-void	ft_h_c(t_flag *flag, char s)
+void			ft_h_c(t_flag *flag, char s)
 {
 	int m;
-	
+
 	m = flag->width;
 	if (flag->width > 1 && flag->minus == 0)
 	{

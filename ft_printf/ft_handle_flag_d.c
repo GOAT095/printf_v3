@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/16 21:33:37 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 14:53:12 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 18:08:25 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_handle_negative(t_flag *flag, int d)
 	int p;
 	int m;
 	long int k;
-	
+
 	j = ft_strlen(ft_itoa(d)) - 1;
 	k = (long int)d * -1;
 	p = flag->prec;
@@ -65,7 +65,7 @@ void    ft_handle_flag_d(t_flag *flag, int d)
 	int		p;
 	int		m;
 	char	*s;
-	
+
 	s = ft_itoa(d);
 	j = ft_strlen(s);
 	p = flag->prec;
@@ -117,7 +117,7 @@ void    ft_handle_pour(t_flag *flag)
 	int p;
 	m = flag->width;
 	p = flag->prec;
-	
+
 	if (flag->width != 0 && flag->zero == 1)
 	{
 		if (flag->minus == 0)

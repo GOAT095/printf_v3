@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:30:09 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 14:34:59 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 18:33:29 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void    ft_h_x(t_flag *flag, char *s)
 	int		j;
 	int		p;
 	int		m;
-	
+
 	j = ft_strlen(s);
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && s[0] == '0')
-			while (m > flag->prec && m-- > j - 1)
-				ft_putchar(' ');
+		while (m > flag->prec && m-- > j - 1)
+			ft_putchar(' ');
 	else if (flag->minus == 1)
 	{
 		if (j < flag->prec)
@@ -63,7 +63,7 @@ void    ft_h_p(t_flag *flag, char *s)
 	int j;
 	int p;
 	int m;
-	
+
 	j = ft_strlen(s);
 	p = flag->prec;
 	m = flag->width;

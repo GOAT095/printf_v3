@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 14:53:30 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 18:33:27 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,10 @@ int		main(void)
 	// ft_printf("meeeeeee==> |%p|\n", (void *)0x0);
 	// printf("original==> |%p|\n", (void *)0x0);
 	// printf("original==> %p\n", &x);
-	i = printf("BLA BLA BLA|%03ld|\n ", -2147483648);
-	printf("%d\n", i);
-	j = ft_printf("BLA BLA BLA|%03d|\n ", -2147483648);
-	 printf("%d\n", j);
+	i = printf("Bla bla |%15.12d|\n", -123);
+	printf("% d\n", i);
+	j = ft_printf("Bla bla |%15.12d|\n", -123);
+	 printf("% d\n", j);
 	// printf("|%*.*u|\n", -4, 0, i);
 	// printf("original==> |%-.d|",i);
 	// ft_printf("|%s|", NULL);

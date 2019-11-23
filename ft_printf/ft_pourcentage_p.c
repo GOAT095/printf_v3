@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:33:01 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 13:36:53 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 18:07:30 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ char			*ft_p(unsigned long long x)
 	y = 0;
 	nb = x;
 	if (x == 0)
-		return("0x0");
+		return ("0x0");
 	while (nb > 0)
 	{
 		nb = nb / 16;
