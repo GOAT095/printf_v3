@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 18:04:45 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 21:50:38 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	ft_get_flags_norm2(char *str, int *i, t_flag *flag, va_list *l);
 int		ft_get_number(char *str, int *i);
 void    ft_handle_flag_d(t_flag *flag, int d);
 void    ft_handle_flag_u(t_flag *flag, unsigned int d);
+void	ft_handle_u_more(t_flag *flag, char *s, int m, int j);
 void    ft_h_x(t_flag *flag, char *s);
+void	ft_h_x_more(t_flag *flag, char *s, int m, int j);
 void    ft_h_p(t_flag *flag, char *s);
 void    ft_handle_pour(t_flag *flag);
 void    ft_h_s(t_flag *flag, char *s);

@@ -6,13 +6,13 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:30:09 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 18:33:29 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 21:46:52 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void    ft_h_x(t_flag *flag, char *s)
+void	ft_h_x(t_flag *flag, char *s)
 {
 	int		j;
 	int		p;
@@ -33,12 +33,18 @@ void    ft_h_x(t_flag *flag, char *s)
 		while (m > flag->prec && m-- > j)
 			ft_putchar(' ');
 	}
-	else if (flag->minus == 0 && flag->prec != -1)
+	else
+		ft_h_x_more(flag, s, m, j);
+}
+
+void	ft_h_x_more(t_flag *flag, char *s, int m, int j)
+{
+	if (flag->minus == 0 && flag->prec != -1)
 	{
 		while (m > flag->prec && m-- > j)
 			ft_putchar(' ');
 		if (j < flag->prec)
-			while (p-- > j)
+			while (flag->prec-- > j)
 				ft_putchar('0');
 		ft_putstr(s);
 	}
@@ -58,7 +64,7 @@ void    ft_h_x(t_flag *flag, char *s)
 		free(s);
 }
 
-void    ft_h_p(t_flag *flag, char *s)
+void	ft_h_p(t_flag *flag, char *s)
 {
 	int j;
 	int p;

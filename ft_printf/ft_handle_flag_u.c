@@ -6,17 +6,43 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 14:22:59 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 18:08:32 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/23 21:50:05 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void    ft_handle_flag_u(t_flag *flag, unsigned int d)
+void	ft_handle_u_more(t_flag *flag, char *s, int m, int j)
 {
-	int j;
-	int p;
-	int m;
+	if (flag->minus == 0 && flag->prec != -1)
+	{
+		while (m > flag->prec && m-- > j)
+			ft_putchar(' ');
+		if (j < flag->prec)
+			while (flag->prec-- > j)
+				ft_putchar('0');
+		ft_putstr(s);
+	}
+	else if (flag->zero == 0 && flag->prec == -1)
+	{
+		while (m-- > j)
+			ft_putchar(' ');
+		ft_putstr(s);
+	}
+	else if (flag->zero == 1 && flag->prec == -1)
+	{
+		while (m-- > j)
+			ft_putchar('0');
+		ft_putstr(s);
+	}
+	free(s);
+}
+
+void	ft_handle_flag_u(t_flag *flag, unsigned int d)
+{
+	int		j;
+	int		p;
+	int		m;
 	char	*s;
 
 	s = ft_itoa(d);
@@ -35,26 +61,6 @@ void    ft_handle_flag_u(t_flag *flag, unsigned int d)
 		while (m > flag->prec && m-- > j)
 			ft_putchar(' ');
 	}
-	else if (flag->minus == 0 && flag->prec != -1)
-	{
-		while (m > flag->prec && m-- > j)
-			ft_putchar(' ');
-		if (j < flag->prec)
-			while (p-- > j)
-				ft_putchar('0');
-		ft_putstr(s);
-	}
-	else if (flag->zero == 0 && flag->prec == -1)
-	{
-		while (m-- > j)
-			ft_putchar(' ');
-		ft_putstr(s);
-	}
-	else if (flag->zero == 1 && flag->prec == -1)
-	{
-		while (m-- > j)
-			ft_putchar('0');
-		ft_putstr(s);
-	}
-	free(s);
+	else
+		ft_handle_u_more(flag, s, m, j);
 }
