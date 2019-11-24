@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 15:18:40 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 16:51:41 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void			ft_putstr(char *s);
 void			ft_putchar(int c);
 void			ft_putnbr(int nb);
 int				ft_printf(const char *s, ...);
+int				ft_init_flag(t_flag *flag, int i);
 char			*ft_small_hexa(unsigned int x);
 char			*ft_big_hexa(unsigned int x);
 char			*ft_p(unsigned long long x);

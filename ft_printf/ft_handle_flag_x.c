@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/19 19:30:09 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 13:47:21 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 17:36:39 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,53 @@ void	ft_h_x_more(t_flag *flag, char *s, int m, int j)
 		free(s);
 }
 
+void	ft_h_p1(t_flag *flag, int j)
+{
+	int m;
+
+	m = flag->width;
+	if (flag->minus == 0)
+	{
+		while (m > flag->prec && m-- > j - 1)
+			ft_putchar(' ');
+		ft_putstr("0x");
+	}
+	else
+	{
+		ft_putstr("0x");
+		while (m > flag->prec && m-- > j - 1)
+			ft_putchar(' ');
+	}
+}
+
+void	ft_h_p2(t_flag *flag, int j, char *s)
+{
+	int p;
+
+	p = flag->prec;
+	if (flag->minus == 0 && flag->prec != -1)
+	{
+		while (flag->width > flag->prec && flag->width-- > j)
+			ft_putchar(' ');
+		if (j < flag->prec)
+			while (p-- > j)
+				ft_putchar('0');
+		ft_putstr(s);
+	}
+	else if (flag->zero == 0 && flag->prec == -1)
+	{
+		while (flag->width-- > j)
+			ft_putchar(' ');
+		ft_putstr(s);
+	}
+	else if (flag->zero == 1 && flag->prec == -1)
+	{
+		while (flag->width-- > j)
+			ft_putchar('0');
+		ft_putstr(s);
+	}
+}
+
 void	ft_h_p(t_flag *flag, char *s)
 {
 	int j;
@@ -74,20 +121,7 @@ void	ft_h_p(t_flag *flag, char *s)
 	p = flag->prec;
 	m = flag->width;
 	if (flag->prec == 0 && s[2] == '0')
-	{
-		if (flag->minus == 0)
-		{
-			while (m > flag->prec && m-- > j - 1)
-				ft_putchar(' ');
-			ft_putstr("0x");
-		}
-		else
-		{
-			ft_putstr("0x");
-			while (m > flag->prec && m-- > j - 1)
-				ft_putchar(' ');
-		}
-	}
+		ft_h_p1(flag, j);
 	else if (flag->minus == 1)
 	{
 		if (j < flag->prec)
@@ -97,27 +131,8 @@ void	ft_h_p(t_flag *flag, char *s)
 		while (m > flag->prec && m-- > j)
 			ft_putchar(' ');
 	}
-	else if (flag->minus == 0 && flag->prec != -1)
-	{
-		while (m > flag->prec && m-- > j)
-			ft_putchar(' ');
-		if (j < flag->prec)
-			while (p-- > j)
-				ft_putchar('0');
-		ft_putstr(s);
-	}
-	else if (flag->zero == 0 && flag->prec == -1)
-	{
-		while (m-- > j)
-			ft_putchar(' ');
-		ft_putstr(s);
-	}
-	else if (flag->zero == 1 && flag->prec == -1)
-	{
-		while (m-- > j)
-			ft_putchar('0');
-		ft_putstr(s);
-	}
+	else
+		ft_h_p2(flag, j, s);
 	if (ft_strncmp(s, "0x0", 100))
 		free(s);
 }

@@ -6,18 +6,19 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 15:20:33 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 17:38:17 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-void		ft_init_flag(t_flag *flag)
+int			ft_init_flag(t_flag *flag, int i)
 {
 	flag->minus = 0;
 	flag->zero = 0;
 	flag->width = 0;
 	flag->prec = -1;
+	return (i);
 }
 
 void		ft_handle_flags(int i, char *str, t_flag *flag, va_list l)
@@ -55,9 +56,8 @@ int			ft_printf(const char *s, ...)
 	int		i;
 	t_flag	flag;
 
-	i = 0;
 	str = ft_strdup(s);
-	ft_init_flag(&flag);
+	i = ft_init_flag(&flag, 0);
 	va_start(l, s);
 	g_count = 0;
 	while (str[i] != '\0')
@@ -67,7 +67,7 @@ int			ft_printf(const char *s, ...)
 			i++;
 			ft_get_flags(str, &i, &flag, &l);
 			ft_handle_flags(i, str, &flag, l);
-			ft_init_flag(&flag);
+			i = ft_init_flag(&flag, i);
 		}
 		else
 			ft_putchar(str[i]);
