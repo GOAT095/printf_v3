@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:33:01 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 13:46:30 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 14:55:24 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,47 +26,48 @@ static	char	ft_alpha(int i)
 		return ('e');
 	if (i == 15)
 		return ('f');
+	else
+		return (i + '0');
 	return (0);
 }
 
-static	void	ft_p2(char *s, int nb, int x, int y)
+static int		ft_county(unsigned long long nb)
 {
-	int i;
+	int y;
 
+	y = 0;
+	while (nb > 0)
+	{
+		nb = nb / 16;
+		y++;
+	}
+	return (y);
+}
+
+char			*ft_p(unsigned long long x)
+{
+	int					y;
+	int					i;
+	unsigned long long	nb;
+	char				*s;
+
+	nb = x;
+	y = ft_county(nb);
+	if (x == 0)
+		return ("0x0");
+	if (!(s = malloc(sizeof(char) * y + 3)))
+		return (NULL);
 	i = 2;
 	s[0] = '0';
 	s[1] = 'x';
 	while (y--)
 	{
 		nb = x % 16;
-		if (nb > 9 && nb < 16)
-			s[i] = ft_alpha(nb);
-		else
-			s[i] = nb + '0';
+		s[i] = ft_alpha(nb);
 		x = x / 16;
 		i++;
 	}
 	s[i] = '\0';
-}
-
-char			*ft_p(unsigned long long x)
-{
-	int					y;
-	unsigned long long	nb;
-	char				*s;
-
-	y = 0;
-	nb = x;
-	if (x == 0)
-		return ("0x0");
-	while (nb > 0)
-	{
-		nb = nb / 16;
-		y++;
-	}
-	if (!(s = malloc(sizeof(char) * y + 3)))
-		return (NULL);
-	ft_p2(s, nb, x, y);
 	ft_strrev(s + 2);
 	return (s);
 }
