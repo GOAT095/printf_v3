@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 21:50:06 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 13:34:21 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ int			ft_printf(const char *s, ...)
 	str = ft_strdup(s);
 	ft_init_flag(&flag);
 	va_start(l, s);
+	count = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
@@ -79,9 +80,9 @@ int			ft_printf(const char *s, ...)
 /*
 int		main(void)
 {
-	int x = 123456;
-	char *d = "abc";
-	int i = 56464;
+	// int x = 123456;
+	// char *d = "abc";
+	int i;
 	int j;
 	// ft_printf("char===>%c \nint==>%d \nstring==>%s \n\n", 'a', -889, "LUL");
 	// printf("original==> %X\n", d);

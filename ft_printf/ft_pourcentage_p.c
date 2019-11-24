@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/07 20:33:01 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 18:07:30 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 13:46:30 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,23 +29,10 @@ static	char	ft_alpha(int i)
 	return (0);
 }
 
-char			*ft_p(unsigned long long x)
+static	void	ft_p2(char *s, int nb, int x, int y)
 {
-	int					y;
-	int					i;
-	unsigned long long	nb;
-	char				*s;
+	int i;
 
-	y = 0;
-	nb = x;
-	if (x == 0)
-		return ("0x0");
-	while (nb > 0)
-	{
-		nb = nb / 16;
-		y++;
-	}
-	s = malloc(sizeof(char) * y + 3);
 	i = 2;
 	s[0] = '0';
 	s[1] = 'x';
@@ -60,6 +47,26 @@ char			*ft_p(unsigned long long x)
 		i++;
 	}
 	s[i] = '\0';
+}
+
+char			*ft_p(unsigned long long x)
+{
+	int					y;
+	unsigned long long	nb;
+	char				*s;
+
+	y = 0;
+	nb = x;
+	if (x == 0)
+		return ("0x0");
+	while (nb > 0)
+	{
+		nb = nb / 16;
+		y++;
+	}
+	if (!(s = malloc(sizeof(char) * y + 3)))
+		return (NULL);
+	ft_p2(s, nb, x, y);
 	ft_strrev(s + 2);
 	return (s);
 }

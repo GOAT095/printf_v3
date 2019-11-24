@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 19:21:00 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/23 21:50:38 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 13:35:18 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ void    ft_h_x(t_flag *flag, char *s);
 void	ft_h_x_more(t_flag *flag, char *s, int m, int j);
 void    ft_h_p(t_flag *flag, char *s);
 void    ft_handle_pour(t_flag *flag);
+void    ft_handle_pour2(t_flag *flag);
 void    ft_h_s(t_flag *flag, char *s);
 void	ft_h_c(t_flag *flag, char s);
 #endif
