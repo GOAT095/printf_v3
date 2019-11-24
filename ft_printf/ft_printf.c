@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/06 16:32:27 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 13:34:21 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 15:20:33 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int			ft_printf(const char *s, ...)
 	str = ft_strdup(s);
 	ft_init_flag(&flag);
 	va_start(l, s);
-	count = 0;
+	g_count = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
@@ -75,7 +75,7 @@ int			ft_printf(const char *s, ...)
 	}
 	va_end(l);
 	free(str);
-	return (count);
+	return (g_count);
 }
 /*
 int		main(void)

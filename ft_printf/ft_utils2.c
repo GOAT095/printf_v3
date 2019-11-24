@@ -6,7 +6,7 @@
 /*   By: anassif <anassif@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/24 13:50:29 by anassif           #+#    #+#             */
-/*   Updated: 2019/11/24 13:51:03 by anassif          ###   ########.fr       */
+/*   Updated: 2019/11/24 15:19:37 by anassif          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void	ft_putstr(char *s)
 void	ft_putchar(int c)
 {
 	write(1, &c, 1);
-	count++;
+	g_count++;
 }
